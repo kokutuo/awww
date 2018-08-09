@@ -1,0 +1,37 @@
+<script src="../../node_modules/axios/dist/axios.js"></script>
+<script src="./api.js"></script>
+
+<script>
+  let model = {
+    key: 'category',
+    structure: {
+      name: {
+        type: 'string'
+      },
+    },
+  };
+
+  // api('MODEL/CREATE', model);
+
+  // api('PROPERTY/CREATE', {
+  //   key: 'promoting',
+  //   model: 'category',
+  //   structure: {
+  //     type: 'boolean',
+  //     default: false
+  //   },
+  // });
+
+    // api('PROPERTY/CREATE', {
+    //   key: 'cover_url',
+    //   model: 'category',
+    //   structure: {
+    //     type: 'text',
+
+    //   }
+    // })
+
+  // api('MODEL/DELETE', {key: 'category'});
+
+  api('MODEL/FIND', {key: 'category'});
+</script>

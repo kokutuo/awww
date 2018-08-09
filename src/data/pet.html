@@ -1,0 +1,122 @@
+<script src="../../node_modules/axios/dist/axios.js"></script>
+<script src="./api.js"></script>
+
+<script>
+  let model = {
+    key: 'pet',
+    structure: {
+      title: {
+        type: 'string',
+        nullable: false,
+      },
+      color: {
+        type: 'string',
+      },
+      cover_url: {
+        type: 'string',
+      },
+      description: {
+        type: 'text'
+      },
+      origin: { // 产地
+        type: 'json',
+      },
+      price: {
+        type: 'float',
+        positive: true,
+        nullable: false,
+      },
+      vaccinated: { // 接种疫苗
+        type: 'boolean',
+        nullable: false,
+      },
+      character: {
+        type: 'string',
+      },
+      sex: {
+        type: 'boolean',
+      },
+      neuter: { //阉割
+        type: 'boolean',
+      },
+      birthday: {
+        type: 'date',
+        nullable: false,
+      },
+      disease: { // 遗传病
+        type: 'boolean',
+      },
+      pure_breed: { // 纯种
+        type: 'boolean',
+      },
+      breed_id: { // 品种
+        type: 'integer',
+        positive: true,
+      },
+      category_id: {
+        type: 'integer',
+        positive: true
+      },
+    },
+  };
+
+  // api('MODEL/CREATE', model);
+
+  // api('MODEL/DELETE', {key: 'pet'});
+
+  // api('PROPERTY/CREATE', {
+  //   key: 'hot',
+  //   model: 'pet',
+  //   structure: {
+  //     type: 'boolean',
+  //   }
+  // });
+
+  // api('MODEL/ATTACH_MOCK', {
+  //   key: 'pet',
+  //   mock: {
+  //     title: {
+  //       mocker: 'word'
+  //     },
+  //     price: {
+  //       mocker: 'numberBetween',
+  //       params: [300, 20000],
+  //     },
+  //     color: {
+  //       mocker: 'colorName',
+  //     },
+  //     description: {
+  //       mocker: 'text',
+  //     },
+  //     origin: {
+  //       mocker: 'country',
+  //     },
+  //     vaccinated: {
+  //       mocker: 'boolean',
+  //     },
+  //     character: {
+  //       mocker: 'randomElement',
+  //       params: [['安静', '活泼', '警觉', '聪明']],
+  //     },
+  //     sex: {
+  //       mocker: 'boolean',
+  //     },
+  //     neuter: {
+  //       mocker: 'boolean',
+  //     },
+  //     disease: {
+  //       mocker: 'boolean',
+  //     },
+  //     pure_breed: {
+  //       mocker: 'boolean',
+  //     },
+  //   }
+  // });
+
+    // api('pet/seed', {
+    //   force: true,
+    //   amount: 16
+    // });
+
+  // api('MODEL/FIND', {key: 'pet'});
+</script>
