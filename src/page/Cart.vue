@@ -17,15 +17,17 @@
             <div class="col-lg-2 tac">操作</div>
           </div>
 
-          <div class="cart-content">
+          <div v-if="count()" class="cart-content">
             <div class="cart-list">
               <div v-for="(it, index) in hub.cart" :key="index" class="row cart-item">
                 <div class="col-lg-1">
                   <input v-model="it._checked" type="checkbox">
                 </div>
                 <div class="col-lg-4">
-                  <img :src="it.$pet ? it.$pet.cover_url : '../img/square-1.jpg'" :alt="it.$pet.title">
-                  <span>{{it.$pet ? it.$pet.title : '???'}}</span>
+                  <router-link :to="`/detail/${it.pet_id}`">
+                    <img :src="it.$pet ? it.$pet.sale_url : '../img/square-1.jpg'" :alt="it.$pet.title">
+                    <span>{{it.$pet ? it.$pet.title : '???'}}</span>
+                  </router-link>
                 </div>
                 <div class="col-lg-1 currency tac">
                   {{it.$pet ? it.$pet.price : '???'}}
@@ -39,17 +41,20 @@
                   {{it.$pet ? it.$pet.price * it.count : '???'}}
                 </div>
                 <div class="col-lg-2 tac">
-                  <button @click="remove(it.id)" class="btn-small round">删除</button>
+                  <button @click="remove(it.id)" class="round">删除</button>
                 </div>
               </div>
             </div>
             <div class="row cart-foot">
               <div class="col-lg-6 left sum">共计：￥{{sum}}</div>
               <div class="col-lg-6 right">
-                <button class="btn-primary round">付款</button>
+                <router-link to="/new_order?from_cart=true">
+                  <button class="btn-primary round">付款</button>
+                </router-link>
               </div>
             </div>
           </div>
+          <div v-else class="empty-holder">暂无内容</div>
         </div>
       </div>
     </div>
@@ -66,9 +71,6 @@ import Footer from "../components/Footer";
 
 export default {
   components: { Nav, Footer },
-
-  mounted() {
-  },
 
   data() {
     return {
@@ -114,8 +116,9 @@ export default {
 <style scoped>
 .cart {
   padding: 20px;
-  max-width: 900px;
+  max-width: 100%;
   margin: 0 auto;
+  background: #fff;
 }
 
 .cart-header {
@@ -125,8 +128,8 @@ export default {
 
 .cart-list img {
   display: inline-block;
-  max-width: 100px;
-  min-height: 80px;
+  max-width: 150px;
+  min-height: 100px;
   padding: 6px;
   margin-right: 5px;
 }

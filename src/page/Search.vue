@@ -11,7 +11,7 @@
               <button type="submit" hidden></button>
             </form>
           </div>
-          <div class="row card round filter">
+          <div class="row box round filter">
             <div class="col-lg-1 filter-item">分类
               <!-- <Dropdown 
                 api="category_id"
@@ -51,7 +51,7 @@
           <div v-for="it in list" :key="it.id" class="col-lg-6">
             <router-link :to="`/detail/${it.id}`">
               <div class="round hover">
-                <img :src="it.cover_url || '../img/square-1.jpg'" alt="wawawa" class="round">
+                <img :src="it.sale_url || it.cover_url || '../img/square-1.jpg'" alt="wawawa" class="round card">
                 <div class="text">
                   <div class="title">{{it.title}}</div>
                   <div class="desc">{{it.description}}</div>

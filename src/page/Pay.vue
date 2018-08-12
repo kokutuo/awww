@@ -4,7 +4,7 @@
       <Nav/>
 
       <div class="container">
-        <div class="card">
+        <div class="box">
           <div v-if="current.pay_by=='wechat'" class="tac">
             <h2>扫码支付</h2>
             <img :src="qrcode" alt="二维码" class="qrcode">
@@ -51,8 +51,6 @@ export default {
       }).then(r => {
         let row = (this.current = r.data);
         let pay_by = row.pay_by;
-console.log('this.current', this.current);
-console.log('row', row);
 
         if (!row) {
           alert("订单号有误");

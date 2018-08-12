@@ -29,8 +29,10 @@
                   <td>
                     <div>
                       <div v-if="!row._paid">
-                        <router-link :to="`/pay/${row.oid}`">付款</router-link>
-                        <span @click="cancel(row.id)" class="btn btn-small">取消订单</span>
+                        <router-link :to="`/pay/${row.oid}`">
+                          <button type="button" class="btn-primary left-round">付款</button>
+                        </router-link>
+                        <button @click="cancel(row.id)" class="right-round">取消订单</button>
                       </div>
                       <div v-else> - </div>
                     </div>
@@ -44,7 +46,7 @@
     </div>
     <div v-if="detail_visible" class="modal">
       <div @click="detail_visible=false" class="mask"></div>
-      <div class="card modal-content round">
+      <div class="box modal-content round">
         <h2>{{pet.title}}</h2>
         <div class="cute-form">
           <div class="key">价格</div>
