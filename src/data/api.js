@@ -1,7 +1,7 @@
 window.api = api;
 
 const APP_KEY = 'd979d9f2826e114ff0d9d4cef55ade0b78426086d8480c641dd752fd237bd2cf';
-const BASE_API = 'http://mock.biaoyansu.com/api/1/';
+const BASE_API = 'https://mock.biaoyansu.com/api/1/';
 
 function sign(app_key, timestamp) {
   return btoa(app_key + timestamp);
